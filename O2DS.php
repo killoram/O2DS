@@ -43,9 +43,7 @@
         return file_get_contents($fname);
     }
     function write_file($fname,$text) {
-        $file = fopen($fname,"w") or die("Could not write to file!");
-        fwrite($file,$text);
-        fclose($file);
+        file_put_contents($fname, $text);
     }
     function SHA256($string) {
         return hash("sha256", $string);
@@ -171,8 +169,9 @@
     }
     #echo 'No errors here :)';
     /*
-    var $database = new dataUnit('mydatabase');
-    var $table = new dataSlot($database, 'users');
+    $database = new dataUnit('mydatabase');
+    $table = new dataSlot($database, 'users');
     $table->addObject( (object)array("name" => "John", "password" => "blablabla") );
+    $pass = $table->getObjectWhere("name","John")->password;
     */
 ?>
